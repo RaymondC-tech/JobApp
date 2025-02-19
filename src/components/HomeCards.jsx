@@ -20,12 +20,12 @@ const HomeCards = () => {
           </Card>
 
           <Card>
-            <h2 className="text-2xl font-bold">For Developers</h2>
+            <h2 className="text-2xl font-bold">For Employers</h2>
             <p className="mt-2 mb-4">
-              Browse our React jobs and start your career today
+              Add a new job to the list
             </p>
-            <Link to="/jobs" className="inline-block bg-black text-white rounded-lg px-4 py-2 hover:bg-gray-700">
-              Browse Jobs
+            <Link to="/add-job" className="inline-block bg-blue-700 text-white rounded-lg px-4 py-2 hover:bg-gray-700">
+              Add Job
             </Link>
           </Card>
         </div>
