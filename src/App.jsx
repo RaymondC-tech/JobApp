@@ -30,7 +30,18 @@ const App = () => {
     return;
   }
   
-  
+  //update a job
+  const updateJob = async (job) => {
+    //update job
+    const res = await fetch(`/api/jobs/${job.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(job)
+    })
+    return;
+  }
   
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -39,7 +50,7 @@ const App = () => {
         <Route path='/jobs' element={<JobsPage/>}/>
         <Route path='/add-job' element={<AddJobPage addJobSubmit={addJob}/>}/>
         <Route path='/jobs/:id' element={<JobPage deleteJob={deleteJob}/>} loader={jobLoader}/>
-        <Route path='/edit-job/:id' element={<EditJobPage/>} loader={jobLoader}/>
+        <Route path='/edit-job/:id' element={<EditJobPage updateJobSubmit={updateJob}/>} loader={jobLoader}/>
         <Route path='*' element={<NotFoundPage/>}/>
         {/* collon means it is dynamic*/}
       </Route>

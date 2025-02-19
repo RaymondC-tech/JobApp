@@ -4,22 +4,22 @@ import { toast } from 'react-toastify'
 
 
 
-const AddJobPage = ({addJobSubmit}) => {
-  const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('Full-Time')
-  const [type, setType] = useState('')
-  const [salary, setSalary] = useState('Under $50K')
-  const [location, setLocation] = useState('')
-  const [company, setCompany] = useState('')
-  const [companyDescription, setCompanyDescription] = useState('')
-  const [companyName, setCompanyName] = useState('')
-  const [contactEmail, setContactEmail] = useState('')
-  const [contactPhone, setContactPhone] = useState('')
-  
-  const navigate = useNavigate()
+const AddJobPage = ({ addJobSubmit }) => {
+  const [title, setTitle] = useState('');
+  const [type, setType] = useState('Full-Time');
+  const [location, setLocation] = useState('');
+  const [description, setDescription] = useState('');
+  const [salary, setSalary] = useState('Under $50K');
+  const [companyName, setCompanyName] = useState('');
+  const [companyDescription, setCompanyDescription] = useState('');
+  const [contactEmail, setContactEmail] = useState('');
+  const [contactPhone, setContactPhone] = useState('');
+
+  const navigate = useNavigate();
 
   const submitForm = (e) => {
-    e.preventDefault()
+    e.preventDefault();
+
     const newJob = {
       title,
       type,
@@ -31,12 +31,17 @@ const AddJobPage = ({addJobSubmit}) => {
         description: companyDescription,
         contactEmail,
         contactPhone,
-      }
-    }
+      },
+    };
+
     addJobSubmit(newJob);
-    toast.success('Job added successfully')
-    return navigate('/jobs')
+
+    toast.success('Job Added Successfully');
+
+    return navigate('/jobs');
   };
+
+
   return (
     <section className="bg-indigo-50">
       <div className="container m-auto max-w-2xl py-24">
